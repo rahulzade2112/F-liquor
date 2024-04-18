@@ -1,11 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts,fetchProductsByFilters } from './productAPI';
+import { fetchAllProducts, fetchProductsByFilters } from './productAPI';
 
 const initialState = {
   products: [],
   status: 'idle',
 };
-
 
 export const fetchAllProductsAsync = createAsyncThunk(
   'product/fetchAllProducts',
@@ -24,15 +23,13 @@ export const fetchProductsByFiltersAsync = createAsyncThunk(
   }
 );
 
-
-
 export const productSlice = createSlice({
-  name: 'product',
+  name: 'products',
   initialState,
   reducers: {
     increment: (state) => {
       state.value += 1;
-    },
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -53,7 +50,7 @@ export const productSlice = createSlice({
   },
 });
 
-export const { increment } = productSlice.actions;
+export const { increment} = productSlice.actions;
 
 export const selectAllProducts = (state) => state.product.products;
 
